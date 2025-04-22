@@ -205,7 +205,7 @@ function App() {
 
   // Helper function to fetch route via GraphHopper
   const getRouteGraphHopper = async (start: { lat: number, lng: number }, end: { lat: number, lng: number }) => {
-    const apiKey = 'd2317561-a83b-4758-8d12-b8659001babb';
+    const apiKey = process.env.REACT_APP_GRAPHHOPPER_KEY;
     const url = `https://graphhopper.com/api/1/route?point=${start.lat},${start.lng}&point=${end.lat},${end.lng}&vehicle=car&locale=en&key=${apiKey}&points_encoded=false&type=json`;
     const res = await fetch(url);
     if (!res.ok) throw new Error('Failed to fetch route from GraphHopper');
